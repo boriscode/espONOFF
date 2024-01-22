@@ -2,14 +2,14 @@
 ## Overview
 
 this project demonstrates how to control a relay using an esp32 through a simple php server. the php server returns a json object indicating the state of the relay (on or off), which the esp32 reads and processes to control the relay accordingly.
-## Components
+## Wiring
 
--Esp32 module
--Relay module
+| ESP MODULE | RELAY |
+|------------|-------|
+| 3.3V or 5V | VCC   |
+| GND        | GND   |
+| D5         | IN    |
 
-## ESP32 Setup
-
-Relay Connection: Connect the relay's input (IN) pin to the ESP33's digital pin 5.
 
 ## Server Setup
 
