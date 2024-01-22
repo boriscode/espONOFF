@@ -22,10 +22,10 @@ Database: Run the following SQL command to create the required database table:
     );
    ```
 
--Database Connection: Update `db.php` with your database connection credentials.
--Get State: The `get_state.php` script returns the current state of the relay in JSON format.
--Toggle State: `The toggle.php` script updates the relay's state in the database based on the button press.
--ESP Code: The `toggle.ino` file contains the Arduino code to be uploaded to the ESP32.
+  -Database Connection: Update `db.php` with your database connection credentials.
+  -Get State: The `get_state.php` script returns the current state of the relay in JSON format.
+  -Toggle State: `The toggle.php` script updates the relay's state in the database based on the button press.
+  -ESP Code: The `toggle.ino` file contains the Arduino code to be uploaded to the ESP32.
 
 ## Usage
 
