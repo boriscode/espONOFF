@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Button Example</title>
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+<div id="app" class="check-box">
+        <!-- Bind checkbox to 'isChecked' property -->
+        <input type="checkbox" v-model="isChecked" @change="toggleCheckbox">
+    </div>
+
+    <script>
+        // Vue application
+        new Vue({
+            el: '#app',
+            data: {
+                isChecked: false
+            },
+            mounted() {
+                // Fetch initial state when component is mounted
+                this.fetchInitialState();
+            },
+            methods: {
+                fetchInitialState() {
+                    // Make an AJAX request to get the initial state
+                    fetch('toggle.php')
+                        .then(response => response.text())
+                        .then(state => {
+                            this.isChecked = state === 'on';
+                        })
+                        .catch(error => console.error('Error:', error));
+                },
+                toggleCheckbox() {
+                    // Send new state to toggle.php
+                    const newState = this.isChecked ? 'on' : 'off';
+                    fetch('toggle.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: `state=${newState}`
+                    }).then(response => {
+                        // Handle response
+                    }).catch(error => {
+                        console.error('Error:', error);
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
